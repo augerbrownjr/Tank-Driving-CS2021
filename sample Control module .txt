@@ -1,0 +1,62 @@
+sample code works via receiving a lowercase character and using the equivilent of a goto command(boo) to trigger commands 
+
+
+void setup() {
+  Serial.begin(9600);   
+Serial1.begin(9600);   // put your setup code here, to run once:
+}
+void loop() {
+  if(Serial1.available()){
+   input = Serial1.read();
+   if(input != 'S'){   
+//Serial.println(input);
+       if (isAlpha(input)){   
+//Serial.println("alpha");
+ switch(input){   
+case 'S':
+//commands for when "stop" is pressed on the bluetooth app
+    break;
+   case'F':    
+//commands for when "Forward" is pressed
+ break;   
+case 'B':      
+//commands for when "Back" is pressed
+break;   
+case 'L':
+//commands for when "Left" is pressed
+break;   
+case'R':      
+//commands for when "Right" is pressed
+break;   
+case 'G':      
+//commands for when "Forward Left" is pressed
+break;   
+case 'H':      
+//commands for when "Back Left" is pressed
+break;   
+case'I':      
+//commands for when "Forward Right" is pressed
+break;   
+case 'J':     
+//commands for when "Back Right" is pressed
+break;   
+// you may want to include other cases for values sent by the app.
+ See the settings in the app for the other values sent.
+case 'q':   
+input = 58;  
+//should return a numeric value that will be converted to the number 10 later in the sketch
+ break;   
+default:
+  break;  
+}   
+}   
+if (isDigit(input)||input == 58){ 
+number = input; 
+number = number - 48; 
+//
+Serial.println(number); 
+//Commands for when slider is moved (range 0-10)
+  }   
+}   
+} 
+}
